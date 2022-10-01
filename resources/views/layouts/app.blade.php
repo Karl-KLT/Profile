@@ -25,7 +25,7 @@
         </div>
 
         <div class="header_img">
-            <img src="{{ asset('img.jfif') }}" style="border-radius: 100%;border: 4px solid #B6CDC6">
+            <img src="{{ asset('storage/img.jfif') }}" style="border-radius: 100%;border: 4px solid #B6CDC6">
         </div>
 
     </header>
