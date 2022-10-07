@@ -32,28 +32,24 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <a href="/" class="nav_logo">
+                <a href="{{ route('Home') }}" class="nav_logo">
                     <i class='bx bx-layer nav_logo-icon'></i>
                     <span class="nav_logo-name">Ka RL-DB</span>
                 </a>
 
                 <div class="nav_list">
 
-                    <a title="Who i'm ?" href="/" class="nav_link {{ ActiveRoutes('/') }}">
+                    <a title="Who i'm ?" href="{{   route('Home')  }}" class="nav_link {{ ActiveRoutes('/') }}">
                         <i class='bx bx-user nav_icon'></i>
                         <span class="nav_name" style="font-weight: bold">Home</span>
                     </a>
 
-                    <a href="{{ route('home.skill') }}" title="Services" class="nav_link {{ ActiveRoutes('skills') }}">
+                    <a href="{{ route('home.skill') }}" title="My skills" class="nav_link {{ ActiveRoutes('skills') }}">
                         <i class='bx bxs-droplet'></i>
                         <span class="nav_name" style="font-weight: bold">My skills</span>
                     </a>
 
                 </div>
-            </div>
-            <div class="nav_link">
-                <i class='bx bx-expand-horizontal'></i>
-                <span class="nav_name">V0</span>
             </div>
         </nav>
     </div>

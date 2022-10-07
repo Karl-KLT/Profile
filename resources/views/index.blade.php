@@ -22,9 +22,9 @@
             </div>
 
         </div>
-        <div class="row mt-4">
+        <div class="row mb-3">
 
-            <div class="col-md-4">
+            <div class="col-md-6 mt-4">
 
                 <div id="prof" class="d-flex p-2 firstBox container-fluid justify-content-start w-100 align-items-center">
 
@@ -104,9 +104,31 @@
             </div>
 
 
-            <div class="col-md-4">
-
+            <div class="col-md-6 mt-4">
+                <div style="user-select: none;" class="d-flex p-2 firstBox container-fluid justify-content-start w-100 align-items-center">
+                    <div class="w-100" id="scroll_skills" style="height: auto;max-height: 245px; overflow: auto;">
+                        <livewire:skills />
+                    </div>
+                </div>
             </div>
+        <style>
+            ::-webkit-scrollbar {
+                width: 12px;
+                height: 12px;
+            }
+            ::-webkit-scrollbar-track {
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: #A2CABD;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #86a79d;
+            }
+        </style>
         </div>
     </div>
 @endsection
