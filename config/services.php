@@ -31,4 +31,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => env('google_KEY_ID'),
+        'client_secret' => env('google_SECRET_KEY'),
+        'redirect' => env('CPathApp')."auth/google"
+    ],
+
+    'github' => [
+        'client_id' => env('github_KEY_ID'),
+        'client_secret' => env('github_SECRET_KEY'),
+        'redirect' => env('CPathApp')."auth/github"
+    ]
+
 ];

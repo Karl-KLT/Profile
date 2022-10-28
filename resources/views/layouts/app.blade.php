@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @yield('custom-head')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <script src=""></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <title>Profile</title>
+    <script src="{{ mix('js/app.js') }}"></script>
+    <title>@yield('Title',env('APP_NAME'))</title>
+
     @livewireStyles
-    @livewireScripts
 </head>
 
 <body id="body-pd">
@@ -34,12 +34,12 @@
             <div>
                 <a href="{{ route('Home') }}" class="nav_logo">
                     <i class='bx bx-layer nav_logo-icon'></i>
-                    <span class="nav_logo-name">Ka RL-DB</span>
+                    <span class="nav_logo-name">{{ env('APP_NAME') }}</span>
                 </a>
 
                 <div class="nav_list">
 
-                    <a title="Who i'm ?" href="{{   route('Home')  }}" class="nav_link {{ ActiveRoutes('/') }}">
+                    <a title="Who i'm ?" href="{{ route('Home') }}" class="nav_link {{ ActiveRoutes('/') }}">
                         <i class='bx bx-user nav_icon'></i>
                         <span class="nav_name" style="font-weight: bold">Home</span>
                     </a>
@@ -48,6 +48,18 @@
                         <i class='bx bxs-droplet'></i>
                         <span class="nav_name" style="font-weight: bold">My skills</span>
                     </a>
+
+                    <a href="{{ route('login') }}" title="@auth Admin @else Login @endauth" class="nav_link {{ ActiveRoutes(['Login','Admin']) }}">
+                        <i class='bx bxs-user-pin' ></i>
+                        <span class="nav_name" style="font-weight: bold">Admin</span>
+                    </a>
+
+                    @auth
+                        <a href="{{ route('logOut') }}" title="logOut" class="nav_link">
+                            <i class='bx bx-log-out-circle'></i>
+                            <span class="nav_name" style="font-weight: bold">logOut</span>
+                        </a>
+                    @endauth
 
                 </div>
             </div>
@@ -58,9 +70,9 @@
         @yield('container')
     </div>
     <!--Container Main end-->
+    @livewireScripts
 </body>
 <script>
-
     document.addEventListener("DOMContentLoaded", function(event) {
 
         const showNavbar = (toggleId, navId, bodyId, headerId) => {
@@ -293,6 +305,22 @@
         .body-pd {
             padding-left: calc(var(--nav-width) + 188px)
         }
+    }
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #A2CABD;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #86a79d;
     }
 </style>
 

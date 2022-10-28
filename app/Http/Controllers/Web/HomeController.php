@@ -10,7 +10,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('index');
+        $user = getUser();
+        return view('index',compact('user'));
     }
 
     public function skill()

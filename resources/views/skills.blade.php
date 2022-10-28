@@ -12,7 +12,6 @@
         {{-- ////////////////////////////////////////// --}}
         <div style="user-select: none;" class="container-fluid">
             <livewire:skills />
-
         </div>
     </div>
 @endsection
