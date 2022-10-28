@@ -15,4 +15,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login','HomeController@Login');
-Route::post('Callback','HomeController@Callback');

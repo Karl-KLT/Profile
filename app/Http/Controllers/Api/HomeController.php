@@ -26,9 +26,4 @@ class HomeController extends Controller
 
     }
 
-
-    public function Callback(Request $request)
-    {
-        return $request->all();
-    }
 }
