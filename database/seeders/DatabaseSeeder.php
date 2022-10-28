@@ -24,11 +24,11 @@ class DatabaseSeeder extends Seeder
 
 
         \App\Models\Profile::create([
-            'Name'=>'Karl',
+            'Name' => 'Karl',
             'Bio' => 'test Bio',
             'userType' => 1,
             'Message' => 'message for test',
-            'user_id'=>1
+            'user_id'=> 1
         ]);
 
         \App\Models\Group::create([

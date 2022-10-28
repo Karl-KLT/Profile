@@ -10,15 +10,25 @@ class HomeController extends Controller
 {
     public function Login(Request $request)
     {
-        
+
         if(Auth::attempt($request->only('email','password'))){
+
+
             if($request->Profile){
                 return getUser()->Profile;
             }
+
             return true;
 
         }
 
         return false;
+
+    }
+
+
+    public function Callback(Request $request)
+    {
+        return $request->all();
     }
 }
