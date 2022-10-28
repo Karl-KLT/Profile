@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @yield('custom-head')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    @yield('custom-head')
     <script src="{{ mix('js/app.js') }}"></script>
     <title>@yield('Title',env('APP_NAME'))</title>
 
@@ -18,17 +18,20 @@
 </head>
 
 <body id="body-pd">
-    <header class="header" id="header">
+    @if(!ActiveRoutes('chat'))
+        <header class="header" id="header">
 
-        <div class="header_toggle">
-            <i class='bx bx-menu' id="header-toggle"></i>
-        </div>
+            <div class="header_toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+            <div class="header_img">
+                <div>
+                    <img src="{{ asset("img.jfif") }}" style="border-radius: 100%;border: 4px solid #B6CDC6">
+                </div>
+            </div>
 
-        <div class="header_img">
-            <img src="{{ asset("img.jfif") }}" style="border-radius: 100%;border: 4px solid #B6CDC6">
-        </div>
-
-    </header>
+        </header>
+    @endif
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
@@ -49,12 +52,27 @@
                         <span class="nav_name" style="font-weight: bold">My skills</span>
                     </a>
 
-                    <a href="{{ route('login') }}" title="@auth Admin @else Login @endauth" class="nav_link {{ ActiveRoutes(['Login','Admin']) }}">
+                    {{-- @auth
+                        <a href="{{ route('Chat') }}" title="Chat" class="nav_link {{ ActiveRoutes('chat') }}">
+                            <i class='bx bxs-message-square-dots'></i>
+                            <span class="nav_name" style="font-weight: bold">Chat</span>
+                        </a>
+                    @endauth --}}
+
+                    <a href="{{ route('login') }}" title="@auth Admin @else Login @endauth" class="nav_link {{ ActiveRoutes(['Login','Admin','signUp']) }}">
                         <i class='bx bxs-user-pin' ></i>
                         <span class="nav_name" style="font-weight: bold">Admin</span>
                     </a>
 
                     @auth
+
+                        @if (checkSA())
+                            <a href="{{ route('Home') }}" title="Config {Soon}" class="nav_link">
+                                <i class='bx bxs-cog'></i>
+                                <span class="nav_name" style="font-weight: bold">Config</span>
+                            </a>
+                        @endif
+
                         <a href="{{ route('logOut') }}" title="logOut" class="nav_link">
                             <i class='bx bx-log-out-circle'></i>
                             <span class="nav_name" style="font-weight: bold">logOut</span>
@@ -74,31 +92,21 @@
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", function(event) {
-
         const showNavbar = (toggleId, navId, bodyId, headerId) => {
-
             const toggle = document.getElementById(toggleId),
                 nav = document.getElementById(navId),
                 bodypd = document.getElementById(bodyId),
                 headerpd = document.getElementById(headerId)
-
-            // Validate that all variables exist
             if (toggle && nav && bodypd && headerpd) {
                 toggle.addEventListener('click', () => {
-                    // show navbar
                     nav.classList.toggle('show')
-                    // change icon
                     toggle.classList.toggle('bx-x')
-                    // add padding to body
                     bodypd.classList.toggle('body-pd')
-                    // add padding to header
-                    headerpd.classList.toggle('body-pd')
+                    @if(!ActiveRoutes('chat')) headerpd.classList.toggle('body-pd') @endif
                 })
             }
         }
-
         showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
-
         /*===== LINK ACTIVE =====*/
         const linkColor = document.querySelectorAll('.nav_link')
 
@@ -145,8 +153,10 @@
 
     body {
         position: relative;
-        margin: var(--header-height) 0 0 0;
-        padding: 0 1rem;
+        @if (!ActiveRoutes('chat'))
+            margin: var(--header-height) 0 0 0;
+            padding: 0 1rem;
+        @endif
         font-family: var(--body-font);
         font-size: var(--normal-font-size);
         transition: .5s
@@ -275,8 +285,12 @@
 
     @media screen and (min-width: 768px) {
         body {
-            margin: calc(var(--header-height) + 1rem) 0 0 0;
-            padding-left: calc(var(--nav-width) + 2rem)
+            @if (!ActiveRoutes('chat'))
+                margin: calc(var(--header-height) + 1rem) 0 0 0;
+                padding-left: calc(var(--nav-width) + 2rem)
+            @else
+                padding-left: calc(var(--nav-width) + 0rem)
+            @endif
         }
 
         .header {

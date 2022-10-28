@@ -26,8 +26,15 @@ class DatabaseSeeder extends Seeder
         \App\Models\Profile::create([
             'Name'=>'Karl',
             'Bio' => 'test Bio',
+            'userType' => 1,
             'Message' => 'message for test',
             'user_id'=>1
+        ]);
+
+        \App\Models\Group::create([
+            'Name'=>'Karl',
+            'Bio' => 'test Bio',
+            'owner_id' => 1
         ]);
     }
 }

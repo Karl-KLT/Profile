@@ -10,13 +10,19 @@ class HomeController extends Controller
 
     public function index()
     {
-        $user = getUser();
-        return view('index',compact('user'));
+        $user = getUser()->Profile;
+        return view('Web.index',compact('user'));
     }
 
     public function skill()
     {
-        return view('skills');
+        return view('Web.skills');
+    }
+
+
+    public function chat()
+    {
+        return view('Web.chat');
     }
 
 

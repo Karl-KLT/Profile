@@ -13,7 +13,7 @@
 
 
 
-    <form wire:submit.prevent='login' id="login" class="d-flex justify-content-center flex-col">
+    <form wire:submit.prevent='login' class="d-flex justify-content-center flex-col">
         @if($error)
             <div class="alert alert-danger">
                 {{ $error }}
@@ -30,11 +30,23 @@
         <div class="mt-2">
             <div class="flex justify-content-between">
 
-                <button type="submit" class="btn btn-outline-dark fw-bold" style="letter-spacing: 1px">SignIn</button>
+                <button type="submit" class="btn btn-outline-dark fw-bold" style="letter-spacing: 1px">
+                    <div wire:loading.remove wire:target='login'>
+                        SignIn
+                    </div>
+                    <div wire:loading wire:target='login'>
+                        <div class="spinner-border"></div>
+                    </div>
+                </button>
 
-                <div wire:loading wire:target='login'>
-                    <div class="spinner-border"></div>
-                </div>
+                <a href="{{ route('signUp') }}" class="btn btn-outline-dark fw-bold" style="letter-spacing: 1px">
+                    <div>
+                        SignUp
+                    </div>
+                </a>
+
+
+
 
             </div>
         </div>

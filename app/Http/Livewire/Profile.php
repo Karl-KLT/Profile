@@ -21,7 +21,7 @@ class Profile extends Component
     public function __construct()
     {
         $user = getUser()->Profile;
-
+        // dd($user);
         $this->Name = $user->Name;
         $this->Bio = $user->Bio;
         $this->localBio = $user->localBio;
@@ -33,14 +33,14 @@ class Profile extends Component
     {
 
         try{
-            $user = getUser()->Profile->first();
+            $user = getUser()->Profile;
 
             $user->Name = $this->Name;
             $user->Bio = $this->Bio;
             $user->localBio = $this->localBio;
             $user->Message = $this->Message;
-
             $user->update();
+
             $this->dispatchBrowserEvent('saveSuccess');
         }catch(Throwable $e){
             $this->dispatchBrowserEvent('saveFaild');

@@ -45,7 +45,7 @@
 
     <div class="my-3">
 
-        <input type="text" wire:model.lazy="Message" class="form-control">
+        <input type="text" placeholder="UR Message . . ." wire:model.lazy="Message" class="form-control">
         {{-- <textarea id="editor" wire:model='Message'>{{ $Message }}</textarea> --}}
 
     </div>
@@ -53,7 +53,14 @@
 
     <div class="text-end mb-2">
 
-        <button class="btn btn-outline-dark" type="submit" wire:click='$emit("Save")'>Save</button>
+        <button class="btn btn-outline-dark" type="submit" wire:click='$emit("Save")'>
+            <div wire:loading.remove>
+                Save
+            </div>
+            <div wire:loading>
+                <div class="spinner-border"></div>
+            </div>
+        </button>
 
     </div>
     {{-- <script>

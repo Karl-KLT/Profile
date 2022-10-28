@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
 function ActiveRoutes($url = null)
@@ -10,25 +12,32 @@ function ActiveRoutes($url = null)
     try{
         if(is_array($url)){
             for($i = 0 ; $i <= count($url) ; $i++){
-
                 if(in_array($url[$i],$url) && $url[$i] == request()->path()){
-
                     return "active";
-
                 };
-
             }
-
         }
-    }catch(Throwable $e){
-        return $e;
-    };
+    }catch(Throwable $e){return '';};
 
     if($url == request()->path()){
         return "active";
     }
 }
 
+function carbonTimerForHumans($time)
+{
+    return Carbon::parse($time)->diffForHumans(null,false,true);
+}
+
+function hashString($text){return Hash::make($text);}
+
+function checkUserAuth()
+{
+    if(Auth::check()){
+        return getUser()->id;
+    }
+    return false;
+}
 
 function getSkills($findById = null)
 {
@@ -40,6 +49,10 @@ function getSkills($findById = null)
         return User::find(Auth::user()->id)->Skills;
     }
     return User::find(1)->Skills;
+}
+
+function checkSA(){
+    return getUser()->Profile->userType;
 }
 
 function getUser()
