@@ -13,13 +13,13 @@ class HomeController extends Controller
 
         if(Auth::attempt($request->only('email','password'))){
 
-
             if($request->Profile){
+
                 return getUser()->Profile;
+
             }
 
-            return true;
-
+            return getUser();
         }
 
         return false;
