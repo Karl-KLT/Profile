@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Devsecure;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -64,6 +65,10 @@ function getUser()
 
 }
 
+function getDevSecure()
+{
+    return Devsecure::find(1);
+}
 
 function googleUser(){
     if(Auth::check()){

@@ -12,7 +12,6 @@
                 <b style="text-decoration: underline;">Message,</b><br>
 
                 <p class="container-fluid text-secondary">
-
                     {{ old('Message',$user) }}
                     {{-- Hello👋 , I appreciate that you are looking at my small site that I've made, anyway this is just an profile image of me just explaining about myself, and I hope that we will be friends. --}}
 

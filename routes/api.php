@@ -14,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login','HomeController@Login');
+// Route::post('login','HomeController@Login');
+
+
+Route::post('ShowDevSecure','HomeController@ShowDevSecure');
+
+Route::post('updateDevSecure','HomeController@updateDevSecure');
+
