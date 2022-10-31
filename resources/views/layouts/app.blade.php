@@ -84,9 +84,15 @@
         </nav>
     </div>
     <!--Container Main start-->
-    <div>
-        @yield('container')
-    </div>
+    @if (!env('DevSecure'))
+        <div class="badge bg-danger p-3 fw-bold mt-4" style="letter-spacing: 0.8px">
+            error: working on site to be more secure
+        </div>
+    @else
+        <div>
+            @yield('container')
+        </div>
+    @endif
     <!--Container Main end-->
     @livewireScripts
 </body>
