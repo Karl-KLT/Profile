@@ -9,13 +9,13 @@
         @error('email') <span class="error alert alert-danger my-1">{{ $message }}</span> @enderror
 
         <div class="mt-1">
-            <input type="password" class="form-control" placeholder="Password . . ." wire:model.lazy='password' required>
+            <input type="password" autocomplete="new-password" class="form-control" placeholder="Password . . ." wire:model.lazy='password' required>
         </div>
         @error('password') <span class="error alert alert-danger my-1">{{ $message }}</span> @enderror
 
 
         <div class="mt-1">
-            <input type="password" class="form-control" placeholder="CPassword . . ." wire:model.lazy='Cpassword' required>
+            <input type="password" autocomplete="new-password" class="form-control" placeholder="CPassword . . ." wire:model.lazy='Cpassword' required>
         </div>
         @error('Cpassword') <span class="error alert alert-danger my-1">{{ $message }}</span> @enderror
 

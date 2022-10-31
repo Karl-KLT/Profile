@@ -24,7 +24,7 @@
         </div>
 
         <div class="mt-1">
-            <input type="password" class="form-control" placeholder="Password . . ." wire:model.lazy='password' name="password" required>
+            <input type="password" autocomplete="current-password" class="form-control" placeholder="Password . . ." wire:model.lazy='password' name="password" required>
         </div>
 
         <div class="mt-2">
