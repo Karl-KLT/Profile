@@ -38,10 +38,10 @@ Route::namespace('Web')->group(function(){
 
     })->name('logOut');
 });
-
-// Route::group(['prefix'=>'chat','middleware'=>'auth'],function(){
-//     Route::get('/','Web\HomeController@chat')->name('Chat');
-// });
+// message routes
+Route::group(['prefix'=>'chat','middleware'=>'auth'],function(){
+    Route::get('/','Web\HomeController@chat')->name('Chat');
+});
 
 Route::group([
     'prefix'=>'Admin',

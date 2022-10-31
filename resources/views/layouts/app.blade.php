@@ -52,12 +52,12 @@
                         <span class="nav_name" style="font-weight: bold">My skills</span>
                     </a>
 
-                    {{-- @auth
+                    @auth
                         <a href="{{ route('Chat') }}" title="Chat" class="nav_link {{ ActiveRoutes('chat') }}">
                             <i class='bx bxs-message-square-dots'></i>
                             <span class="nav_name" style="font-weight: bold">Chat</span>
                         </a>
-                    @endauth --}}
+                    @endauth
 
                     <a href="{{ route('login') }}" title="@auth Admin @else Login @endauth" class="nav_link {{ ActiveRoutes(['Login','Admin','signUp']) }}">
                         <i class='bx bxs-user-pin' ></i>

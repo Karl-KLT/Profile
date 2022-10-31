@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Message;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -11,33 +10,35 @@ class Chat extends Component
 {
 
     // public $groups;
-    public $getAllMessages;
+    public $getMessages;
 
     public $message;
-
-    public $groupDetail;
 
     protected $rules = [
         'message'=>"required"
     ];
-
-    public function __construct()
-    {
-        $this->getAllMessages = Message::all();
-    }
+    
+    protected $listeners = ['SMessage'=>'sendMessage'];
 
     public function sendMessage()
     {
-        $this->validate();
-        Message::create(['Message'=>$this->message,'user_id'=>Auth::id()]);
-        $this->getAllMessages = Message::all();
-        $this->message = '';
 
+        $this->validate();
+
+        Message::create([
+            'Message'=>$this->message,
+            'user_id'=>Auth::id()
+        ]);
+
+
+        $this->message = '';
+        $this->getAllMessages = Message::all();
 
     }
 
     public function render()
     {
+        $this->getMessages = Message::all();
         return view('livewire.chat');
     }
 }

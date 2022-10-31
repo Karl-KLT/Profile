@@ -14,7 +14,6 @@ var Turbolinks = require("turbolinks")
 
 //events
 
-
 window.addEventListener('saveSuccess',function(){
     const Toast = Swal.mixin({
         toast: true,

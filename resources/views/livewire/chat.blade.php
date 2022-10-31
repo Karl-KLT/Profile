@@ -99,7 +99,7 @@
                             class="rounded-circle" alt="image">
                     </figure>
                     <div class="flex align-items-center">
-                        <h5 class="me-2">{{ env('APP_NAME') }}-Chat</h5>
+                        <h5 class="me-2">{{ env('APP_NAME') }}-Chat->Demo</h5>
 
                         {{-- <span class="badge cursor-pointer bg-dark">
                             <i class='bx bxs-show'></i>
@@ -180,27 +180,86 @@
             </div>
             <div class="chat-body">
                 <div class="messages">
-                    @forelse ($getAllMessages as $message)
-                        @if ($message->id == checkUserAuth())
+                    @forelse ($getMessages as $message)
+                        @if (getUser()->id == $message->user_id)
                             <div class="chats chats-right">
                                 <div class="chat-content">
                                     <div class="message-content">
-                                        Good morning, How are you? What about our next meeting?
+                                        {{ old('Message',$message) }}
                                         <div class="chat-time">
                                             <div>
-                                                <div class="time"><i class="fas fa-clock"></i> 10:00</div>
+                                                <div class="time"><i class="fas fa-clock  me-1"></i>{{ carbonTimerForHumans($message->created_at) }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="chat-profile-name text-end">
-                                        <h6>Alexandr</h6>
+                                        <h6>{{ old('Name',$message->Users->Profile) }}</h6>
+                                    </div>
+                                </div>
+                                <div class="chat-avatar">
+                                    <img src="{{ asset('img.jfif') }}"
+                                        class="rounded-circle dreams_chat" alt="image">
+                                </div>
+                            </div>
+                        @else
+                            <div class="chats">
+                                <div class="chat-avatar">
+                                    <img src="{{ asset('img.jfif') }}"
+                                        class="rounded-circle dreams_chat" alt="image">
+                                </div>
+                                <div class="chat-content">
+                                    <div class="message-content">
+                                        {{ old('Message',$message) }}
+
+                                        <div class="chat-time">
+                                            <div>
+                                                <div class="time"><i class="fas fa-clock me-1"></i>{{ carbonTimerForHumans($message->created_at) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chat-profile-name">
+                                        <h6>{{ old('Name',$message->Users->Profile) }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @empty
+                        <div class="chats">
+                            <div class="chat-avatar">
+                                <img src="{{ asset('img.jfif') }}"
+                                    class="rounded-circle dreams_chat" alt="image">
+                            </div>
+                            <div class="chat-content">
+                                <div class="message-content">
+                                    No message Found, this chat is Demo from {{env('APP_NAME')}}
+                                </div>
+                                <div class="chat-profile-name">
+                                    <h6>System</h6>
+                                </div>
+                            </div>
+                        </div>
+                    @endforelse
+                    {{-- @forelse ($getAllMessages as $message) --}}
+                        {{-- @if ($message->id == checkUserAuth()) --}}
+                            {{-- <div class="chats chats-right">
+                                <div class="chat-content">
+                                    <div class="message-content">
+                                        {{ old('Message',$message) }}
+                                        <div class="chat-time">
+                                            <div>
+                                                <div class="time"><i class="fas fa-clock"></i>{{ carbonTimerForHumans($message->created_at) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chat-profile-name text-end">
+                                        <h6>{{ old('Name',$message->User->Profile) }}</h6>
                                     </div>
                                 </div>
                                 <div class="chat-avatar">
                                     <img src="https://dreamschat-laravel.dreamguystech.com/template2/public/assets/img/avatar/avatar-12.jpg"
                                         class="rounded-circle dreams_chat" alt="image">
-                                </div>
-                                <div class="chat-action-btns me-2">
+                                </div> --}}
+                                {{-- <div class="chat-action-btns me-2">
                                     <div class="chat-action-col">
                                         <a class="#"
                                             href="https://dreamschat-laravel.dreamguystech.com/template2/public/#"
@@ -221,21 +280,21 @@
                                                 class="dropdown-item">Delete <span><i
                                                         class="far fa-trash-alt"></i></span></a>
                                         </div>
-                                    </div>
-                                    <div class="chat-read-col">
+                                    </div> --}}
+                                    {{-- <div class="chat-read-col">
                                         <span class="material-icons">done_all</span>
-                                    </div>
-                                </div>
-                            </div>
-                        @else
-                            <div class="chats">
-                                <div class="chat-avatar">
-                                    <img src="https://dreamschat-laravel.dreamguystech.com/template2/public/assets/img/avatar/avatar-8.jpg"
+                                    </div> --}}
+                                {{-- </div>
+                            </div> --}}
+                        {{-- @else --}}
+                            {{-- <div class="chats"> --}}
+                                {{-- <div class="chat-avatar">
+                                    <img src="{{ asset('img.jfif') }}"
                                         class="rounded-circle dreams_chat" alt="image">
                                 </div>
                                 <div class="chat-content">
                                     <div class="message-content">
-                                        {{ $message->Message }}
+                                        {{ old('Message',$message) }}
                                         <div class="chat-time">
                                             <div class="flex align-items-center">
                                                 <div class="time" wire:poll.keep-alive><i class="fas fa-clock me-1"></i>{{ carbonTimerForHumans($message->created_at) }}</div>
@@ -245,7 +304,7 @@
                                     <div class="chat-profile-name">
                                         <h6>{{ $message->User->Profile->Name }}</h6>
                                     </div>
-                                </div>
+                                </div> --}}
                                 {{-- <div class="chat-action-btns ms-3">
                                     <div class="chat-action-col">
                                         <a class="#"
@@ -269,11 +328,8 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                            </div>
-
-                        @endif
-                    @empty
-                        <div class="chats">
+                            {{-- </div> --}}
+                        {{-- <div class="chats">
                             <div class="chat-avatar">
                                 <img src="{{ asset('img.jfif') }}"
                                     class="rounded-circle dreams_chat" alt="image">
@@ -286,8 +342,7 @@
                                     <h6>System</h6>
                                 </div>
                             </div>
-                        </div>
-                    @endforelse
+                        </div> --}}
                     {{-- <div class="chats chats-right">
                         <div class="chat-content">
                             <div class="message-content">
@@ -588,7 +643,7 @@
             </div>
         </div>
         <div class="chat-footer w-100 bg-light container-fluid justify-content-center flex" style="position: fixed;bottom: 0;">
-            <form class="w-75 flex align-items-center" wire:submit.prevent='sendMessage'>
+            <form class="w-75 flex align-items-center" wire:submit.prevent='$emit("SMessage")'>
                 {{-- <div class="smile-col">
                     <a href="https://dreamschat-laravel.dreamguystech.com/template2/public/#"><i
                             class="far fa-smile"></i></a>

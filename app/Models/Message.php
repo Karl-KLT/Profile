@@ -14,8 +14,8 @@ class Message extends Model
         'Message','user_id'
     ];
 
-    public function User()
+    public function Users()
     {
-        return $this->hasOne(User::class ,'id','user_id');
+        return $this->hasOne(User::class,'id','user_id');
     }
 }
