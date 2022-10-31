@@ -84,7 +84,7 @@
         </nav>
     </div>
     <!--Container Main start-->
-    @if (!env('DevSecure'))
+    @if (env('DevSecure'))
         <div class="badge bg-danger p-3 fw-bold mt-4" style="letter-spacing: 0.8px">
             error: working on site to be more secure
         </div>
