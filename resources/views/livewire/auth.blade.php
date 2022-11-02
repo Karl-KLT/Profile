@@ -13,8 +13,9 @@
 
 
 
-    <form wire:submit.prevent='login' class="d-flex justify-content-center flex-col">
+    <form action="#" method="POST" wire:submit.prevent='login' class="d-flex justify-content-center flex-col">
         @csrf
+        @method('PATCH')
         @if($error)
             <div class="alert alert-danger">
                 {{ $error }}

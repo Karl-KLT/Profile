@@ -2,7 +2,6 @@
 
 
     <form wire:submit.prevent='Reg' class="d-flex justify-content-center flex-col">
-        @csrf
         <div>
             <input type="email" class="form-control" placeholder="Email . . ." wire:model.lazy='email' required>
         </div>
