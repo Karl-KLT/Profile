@@ -14,7 +14,7 @@
 
 
     <form wire:submit.prevent='login' class="d-flex justify-content-center flex-col">
-        {!! csrf_field() !!}
+        {{  csrf_field()  }}
         @if($error)
             <div class="alert alert-danger">
                 {{ $error }}
