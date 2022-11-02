@@ -14,11 +14,10 @@
 
 
     <form wire:submit.prevent='login' class="d-flex justify-content-center flex-col">
-        {{  csrf_field()  }}
         @if($error)
             <div class="alert alert-danger">
                 {{ $error }}
-            </div>
+            </div>ssions
         @endif
         <div>
             <input type="email" class="form-control" placeholder="Email . . ." wire:model.lazy='email' name="email" required>
