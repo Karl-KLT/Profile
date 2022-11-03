@@ -10,42 +10,32 @@ use Throwable;
 
 class HomeController extends Controller
 {
-    // public function Login(Request $request)
-    // {
-
-    //     if(Auth::attempt($request->only('email','password'))){
-
-    //         if($request->Profile){
-
-    //             return getUser()->Profile;
-
-    //         }
-
-    //         // DevSecure = false
-
-    //         return getUser();
-    //     }
-
-    //     return false;
-
-    // }
-
-    // DevSecure = false
 
     public function ShowDevSecure()
     {
         return getDevSecure()->DevSecure;
     }
 
-    public function updateDevSecure()
+    public function updateDevSecure(bool $defValue = null)
     {
         try{
+
             $key = getDevSecure()->first();
+
+            if($defValue) {
+                $key->DevSecure = $defValue;
+            }
+
             $key->DevSecure = $key->DevSecure ? 0 : 1;
+
             $key->update();
+
             return true;
+
         }catch(Throwable $e){
+
             return false;
+
         }
     }
 
