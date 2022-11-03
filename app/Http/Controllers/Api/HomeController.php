@@ -3,36 +3,35 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use Throwable;
 
 class HomeController extends Controller
 {
 
-    public function ShowDevSecure(bool $date = null)
+    public function ShowDevSecure()
     {
-
-        if($date){
+        if(request()->date){
             return 'updated: ' . carbonTimerForHumans(getDevSecure()->updated_at);
         }
 
         return getDevSecure()->DevSecure;
     }
 
-    public function updateDevSecure(bool $defValue = null)
+    public function updateDevSecure()
     {
         try{
 
             $key = getDevSecure()->first();
 
-            if($defValue) {
-                $key->DevSecure = $defValue;
+            if(request()->value) {
+                $key->DevSecure = request()->value;
             }else{
                 $key->DevSecure = $key->DevSecure ? 0 : 1;
             }
-
             $key->update();
 
-            return true;
+            return $key->DevSecure;
 
         }catch(Throwable $e){
 
