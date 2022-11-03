@@ -21,9 +21,9 @@ class HomeController extends Controller
 
             if($defValue) {
                 $key->DevSecure = $defValue;
+            }else{
+                $key->DevSecure = $key->DevSecure ? 0 : 1;
             }
-
-            $key->DevSecure = $key->DevSecure ? 0 : 1;
 
             $key->update();
 
