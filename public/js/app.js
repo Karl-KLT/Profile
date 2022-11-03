@@ -2475,10 +2475,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolinks/dist/turbolinks.js"); // Turbolinks.start()
-//events
+var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolinks/dist/turbolinks.js");
 
+Turbolinks.start(); //events
 
+document.addEventListener('working_on_it', function () {
+  Swal.fire('We still working on it Thx :)');
+});
 window.addEventListener('saveSuccess', function () {
   var Toast = Swal.mixin({
     toast: true,

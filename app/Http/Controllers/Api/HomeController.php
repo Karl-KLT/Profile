@@ -8,8 +8,13 @@ use Throwable;
 class HomeController extends Controller
 {
 
-    public function ShowDevSecure()
+    public function ShowDevSecure(bool $date = null)
     {
+
+        if($date){
+            return 'updated: ' . carbonTimerForHumans(getDevSecure()->updated_at);
+        }
+
         return getDevSecure()->DevSecure;
     }
 

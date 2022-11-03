@@ -1,7 +1,7 @@
 import './bootstrap';
 
 var Turbolinks = require("turbolinks")
-// Turbolinks.start()
+Turbolinks.start()
 
 
 
@@ -13,6 +13,10 @@ var Turbolinks = require("turbolinks")
 
 
 //events
+
+document.addEventListener('working_on_it',function (){
+    Swal.fire('We still working on it Thx :)')
+})
 
 window.addEventListener('saveSuccess',function(){
     const Toast = Swal.mixin({

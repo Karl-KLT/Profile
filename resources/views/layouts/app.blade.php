@@ -53,9 +53,12 @@
                     </a>
 
                     @auth
-                        <a href="{{ route('Chat') }}" title="Chat" class="nav_link {{ ActiveRoutes('chat') }}">
-                            <i class='bx bxs-message-square-dots'></i>
-                            <span class="nav_name" style="font-weight: bold">Chat</span>
+                        <a href="{{ route('posts') }}" title="Posts" class="nav_link {{ ActiveRoutes('posts') }}">
+{{--                            <i class='bx bxs-message-square-dots'></i>--}}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-post-fill" viewBox="0 0 16 16">
+                                <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM4.5 3h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zm0 2h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                            <span class="nav_name" style="font-weight: bold">Posts</span>
                         </a>
                     @endauth
 
@@ -85,8 +88,16 @@
     </div>
     <!--Container Main start-->
     @if (getDevSecure()->DevSecure)
-        <div class="badge bg-danger p-3 fw-bold mt-4" style="letter-spacing: 0.8px">
-            error: working on site to be more secure
+        <div class="badge bg-danger user-select-none p-3 fw-bold mt-4" style="letter-spacing: 0.8px">
+            <div>
+                error: working on site to be more secure
+            </div>
+            <span class="text-start d-flex align-items-center">
+                <p class="pt-2">
+                    <i class='bx bxs-lock-alt' ></i>
+                    site are closed
+                </p>
+            </span>
         </div>
     @else
         <div>

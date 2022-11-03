@@ -16,6 +16,11 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
+// get users
+
+
+
+
 Route::namespace('Web')->group(function(){
     Route::get('/','HomeController@index')->name('Home');
     Route::get('skills','HomeController@skill')->name('home.skill');
@@ -39,8 +44,8 @@ Route::namespace('Web')->group(function(){
     })->name('logOut');
 });
 // message routes
-Route::group(['prefix'=>'chat','middleware'=>'auth'],function(){
-    Route::get('/','Web\HomeController@chat')->name('Chat');
+Route::group(['prefix'=>'posts','namespace'=>'Web','middleware'=>'auth'],function(){
+    Route::get('/','HomeController@posts')->name('posts');
 });
 
 Route::group([

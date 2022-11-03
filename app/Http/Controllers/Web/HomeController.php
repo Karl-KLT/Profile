@@ -20,9 +20,9 @@ class HomeController extends Controller
     }
 
 
-    public function chat()
+    public function posts()
     {
-        return view('Web.chat');
+        return view('Web.posts');
     }
 
 

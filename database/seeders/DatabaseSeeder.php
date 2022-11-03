@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         Devsecure::create([
             'DevSecure'=>false
         ]);
+
         \App\Models\User::create([
             'email' => 'mohamed@gmail.com',
             'password' => Hash::make('Hcode0110')
