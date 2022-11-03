@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Devsecure;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Throwable;
 
@@ -34,7 +31,7 @@ class HomeController extends Controller
 
         }catch(Throwable $e){
 
-            return false;
+            return response()->json(['status'=>401,'message'=>'something went wrong with ur code']);
 
         }
     }
