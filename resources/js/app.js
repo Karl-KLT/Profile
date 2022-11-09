@@ -5,12 +5,12 @@ var Turbolinks = require("turbolinks")
 
 
 
-document.addEventListener('DOMContentLoaded',function(){
-    setTimeout(() => {
-        document.getElementById('loading').className='d-none'
-        document.getElementById('Main').className='d-block'
-    }, 400);
-})
+// document.addEventListener('DOMContentLoaded',function(){
+//     setTimeout(() => {
+//         document.getElementById('loading').className='d-none'
+//         document.getElementById('Main').className='d-block'
+//     }, 400);
+// })
 
 
 
