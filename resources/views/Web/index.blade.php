@@ -5,7 +5,7 @@
     </div>
     <div class="mt-1">
 
-        <div id="desc" class="mt-2 text-light container-fluid w-md-75 rounded" style="background: linear-gradient(360deg ,#98B3AA,#CDE4DD 200px);">
+        <div id="desc" class="mt-2 text-light container-fluid w-md-75 rounded" style="background: #CDE4DD;">
 
             <div class="container-fluid p-1 w-100 text-dark" style="letter-spacing: 0.5px;">
 
@@ -17,7 +17,7 @@
 
                 </p>
 
-                <h3 class="alert mt-2 alert-primary text-dark fw-bold">0 -> Under devolopment</h3>
+                {{-- <h3 class="alert mt-2 alert-primary text-dark fw-bold">0 -> Under devolopment</h3> --}}
 
             </div>
 
@@ -35,7 +35,7 @@
                     <div class="mt-2 pb-3">
 
                         <h4 class="fw-bold" style="letter-spacing: 1px;">
-                            @if (checkSA())
+                            @if ($user->userType)
                                 <div class="flex align-items-center">
                                     <i class='bx bxs-user-rectangle'></i>
                                     <span>{{ old('Name',$user) }}</span>
@@ -73,7 +73,7 @@
             <div class="col-md-6 mt-4">
                 <div style="user-select: none;" class="d-flex p-2 firstBox container-fluid justify-content-start w-100 align-items-center">
                     <div class="w-100 @auth py-2 @endauth" id="scroll_skills" style="height: auto;max-height: 245px; overflow: auto;">
-                        <livewire:skills />
+                        <livewire:skills/>
                     </div>
                 </div>
             </div>

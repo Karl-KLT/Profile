@@ -29,11 +29,15 @@ class SignUp extends Component
     public function Reg()
     {
         $this->validate();
+        
         try{
             User::create(['email'=>$this->email,'password'=>hashString($this->password)]);
+
             if(Auth::attempt(['email' => $this->email, 'password' => $this->password])){
-                Profile::create(['user_id'=>Auth::id()]);Auth::logOut();
-                return redirect(route('login'));
+
+                Profile::create(['user_id'=>Auth::id(),'USER_SID'=>randomString()]);
+
+                return redirect(route('Profile'));
             }
         }catch(Throwable $e){
             dd($e);

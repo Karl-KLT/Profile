@@ -20,19 +20,21 @@ use Laravel\Socialite\Facades\Socialite;
 
 
 
-
 Route::namespace('Web')->group(function(){
+
     Route::get('/','HomeController@index')->name('Home');
+
+    Route::get('User/{USER_SID}','HomeController@visitUser')->name('visitUser');
+
     Route::get('skills','HomeController@skill')->name('home.skill');
 
-
     Route::get('Login',function(){
-        if(Auth::check()){return redirect(route('Admin'));}
+        if(Auth::check()){return redirect(route('Profile'));}
         return view('Auth.index');
     })->name('login');
 
     Route::get('signUp',function(){
-        if(Auth::check()){return redirect(route('Admin'));}
+        if(Auth::check()){return redirect(route('Profile'));}
         return view('Auth.signUp.index');
     })->name('signUp');
 
@@ -43,22 +45,24 @@ Route::namespace('Web')->group(function(){
 
     })->name('logOut');
 });
-// message routes
+// Posts routes
 Route::group(['prefix'=>'posts','namespace'=>'Web','middleware'=>'auth'],function(){
     Route::get('/','HomeController@posts')->name('posts');
 });
 
 Route::group([
-    'prefix'=>'Admin',
+    'prefix'=>'Profile',
     'namespace'=>'Auth',
     'middleware'=>'auth'
 ],function(){
-    Route::get('/','LoginController@index')->name('Admin');
+    Route::get('/','LoginController@index')->name('Profile');
 });
 
+
+
 Route::fallback(function(){
-    return 'page not round';
-});
+    return '404 -> page not found';
+})->name('pageNotFound');
 
 
 

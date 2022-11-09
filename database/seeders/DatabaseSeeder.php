@@ -23,16 +23,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::create([
-            'email' => 'mohamed@gmail.com',
+            'email' => 'mohamedSuc_DTR@gmail.com',
             'password' => Hash::make('Hcode0110')
         ]);
 
 
         \App\Models\Profile::create([
-            'Name' => 'Karl',
-            'Bio' => 'test Bio',
+
+            'USER_SID'=>randomString(),
+            'Name' => 'Ka RL',
+            'Bio' => 'ƙ♬Ʀɭ / .𝕶 𝖆 𝖗 𝖑 - ° 𝕭 |🇬🇧!',
+            'localBio' => 'Full Stack Developer',
             'userType' => 1,
-            'Message' => 'message for test',
+            'Message' => "Hello👋 , I appreciate that you are looking at my small site that I've made, anyway this is just an profile image of me just explaining about myself, and I hope that we will be friends.",
             'user_id'=> 1
         ]);
 

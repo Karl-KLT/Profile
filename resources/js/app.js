@@ -1,11 +1,16 @@
 import './bootstrap';
 
 var Turbolinks = require("turbolinks")
-Turbolinks.start()
+// Turbolinks.start()
 
 
 
-
+document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(() => {
+        document.getElementById('loading').className='d-none'
+        document.getElementById('Main').className='d-block'
+    }, 400);
+})
 
 
 
@@ -13,6 +18,8 @@ Turbolinks.start()
 
 
 //events
+
+
 
 document.addEventListener('working_on_it',function (){
     Swal.fire('We still working on it Thx :)')

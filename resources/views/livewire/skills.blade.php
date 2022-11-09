@@ -34,56 +34,56 @@
             </div>
         @endforelse
     </div>
+    @if (!$visitor)
+        @auth
 
-
-    @auth
-
-        <div class="w-100 mt-2  container-fluid">
-
-
+            <div class="w-100 mt-2  container-fluid">
 
 
 
-            <form wire:submit.prevent='$emit("save")' class="flex">
 
 
-                <div class="w-100">
-                    <input type="text" placeholder="Name" wire:model.lazy='Name'  maxlength="12" class="form-control" id="">
-                </div>
+                <form wire:submit.prevent='$emit("save")' class="flex">
+
+
+                    <div class="w-100">
+                        <input type="text" placeholder="Name" wire:model.lazy='Name'  maxlength="12" class="form-control" id="">
+                    </div>
 
 
 
-                <div class="w-25 mx-2">
-                    <input type="text" maxlength="3" placeholder="MaxNum" wire:model.lazy='MaxNum' class="form-control" id="">
-                </div>
+                    <div class="w-25 mx-2">
+                        <input type="text" maxlength="3" placeholder="MaxNum" wire:model.lazy='MaxNum' class="form-control" id="">
+                    </div>
 
-                <div>
-                    <button type="submit" class="btn btn-dark text-gray-900">Add</button>
-                </div>
-            </form>
+                    <div>
+                        <button type="submit" class="btn btn-dark text-gray-900">Add</button>
+                    </div>
+                </form>
 
-            @if($errors->any())
-                <div class="flex my-4 justify-content-between w-100">
+                @if($errors->any())
+                    <div class="flex my-4 justify-content-between w-100">
 
-                    @error('Name')
-                        <div>
-                            <span class="error alert alert-danger">{{ $message }}</span>
-                        </div>
-                    @enderror
-
-
-                    @error('MaxNum')
-                        <div>
-                            <span class="error alert alert-danger">{{ $message }}</span>
-                        </div>
-                    @enderror
-
-                </div>
-            @endif
+                        @error('Name')
+                            <div>
+                                <span class="error alert alert-danger">{{ $message }}</span>
+                            </div>
+                        @enderror
 
 
-        </div>
-    @endauth
+                        @error('MaxNum')
+                            <div>
+                                <span class="error alert alert-danger">{{ $message }}</span>
+                            </div>
+                        @enderror
+
+                    </div>
+                @endif
+
+
+            </div>
+        @endauth
+    @endif
     <style>.Box{width: 100%;height: auto;background-color: #CDE4DD;border-radius: 10px; }</style>
 </div>
 

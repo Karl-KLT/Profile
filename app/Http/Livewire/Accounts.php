@@ -9,13 +9,18 @@ class Accounts extends Component
 {
 
 
+    public $visitor;
+
 
     public function render()
     {
         return view('livewire.accounts');
     }
 
-
+    public function __construct()
+    {
+        $this->visitor = checkVisitor();
+    }
 
     public function LogOutFromGoogle()
     {

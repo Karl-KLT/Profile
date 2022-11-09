@@ -62,15 +62,13 @@
                         </a>
                     @endauth
 
-                    <a href="{{ route('login') }}" title="@auth Admin @else Login @endauth" class="nav_link {{ ActiveRoutes(['Login','Admin','signUp']) }}">
+                    <a href="{{ route('Profile') }}" title="@auth Profile @else Login @endauth" class="nav_link {{ ActiveRoutes(['Login','Profile','signUp']) }}">
                         <i class='bx bxs-user-pin' ></i>
-                        <span class="nav_name" style="font-weight: bold">Admin</span>
+                        <span class="nav_name" style="font-weight: bold">Profile</span>
                     </a>
-
                     @auth
-
                         @if (checkSA())
-                            <a href="{{ route('Home') }}" title="Config {Soon}" class="nav_link">
+                            <a href="#" title="Config {Soon}" class="nav_link">
                                 <i class='bx bxs-cog'></i>
                                 <span class="nav_name" style="font-weight: bold">Config</span>
                             </a>
@@ -95,14 +93,12 @@
             <span class="text-start d-flex align-items-center">
                 <p class="pt-2">
                     <i class='bx bxs-lock-alt' ></i>
-                    site are closed
+                    site are closed by owner
                 </p>
             </span>
         </div>
     @else
-        <div>
-            @yield('container')
-        </div>
+        <livewire:load-document />
     @endif
     <!--Container Main end-->
     @livewireScripts

@@ -2475,9 +2475,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolinks/dist/turbolinks.js");
+var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolinks/dist/turbolinks.js"); // Turbolinks.start()
 
-Turbolinks.start(); //events
+
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function () {
+    document.getElementById('loading').className = 'd-none';
+    document.getElementById('Main').className = 'd-block';
+  }, 400);
+}); //events
 
 document.addEventListener('working_on_it', function () {
   Swal.fire('We still working on it Thx :)');

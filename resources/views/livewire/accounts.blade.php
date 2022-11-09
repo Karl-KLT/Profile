@@ -30,7 +30,7 @@
                 H.Code0110
             </div>
         </div> --}}
-        @if(checkGoogleToken() || Auth::check())
+        @if (checkGoogleToken() || Auth::check())
             <div class="navbar">
                 <div class="d-flex align-items-center">
                     <i class='bx bxl-google'></i><span class="ms-1" style="font-weight: bold;">Google</span>
@@ -38,58 +38,68 @@
                 <div class="text-secondary flex align-items-center" style="user-select:text;">
                     <div>
                         @if (checkGoogleToken())
-                            {{googleUserByToken()->getEmail()}}
+                            {{ googleUserByToken()->getEmail() }}
                         @endif
                     </div>
-                    @auth
+                    @if (!$visitor)
+                        @auth
 
-                        @if (checkGoogleToken())
-                            <div wire:click='LogOutFromGoogle' class="text-secondary cursor-pointer ms-2" style="user-select:text;transform: translateY(3px)">
-                                <button type="submit" style="outline: none;font-size: 20px" class="hover:text-red-400"><i class='bx bxs-message-square-x'></i></button>
-                            </div>
-                        @else
+                            @if (checkGoogleToken())
+                                <div wire:click='LogOutFromGoogle' class="text-secondary cursor-pointer ms-2"
+                                    style="user-select:text;transform: translateY(3px)">
+                                    <button type="submit" style="outline: none;font-size: 20px" class="hover:text-red-400"><i
+                                            class='bx bxs-message-square-x'></i></button>
+                                </div>
+                            @else
+                                <form action="{{ route('Authgoogle') }}" class="text-secondary cursor-pointer"
+                                    style="user-select:text;">
+                                    <button class="hover:text-green-500 align-items-center flex"
+                                        style="outline: none;font-size: 20px"><i class='bx bxs-message-square-add'></i></button>
+                                </form>
+                            @endif
 
-                            <form action="{{ route('Authgoogle') }}" class="text-secondary cursor-pointer" style="user-select:text;">
-                                <button class="hover:text-green-500 align-items-center flex" style="outline: none;font-size: 20px"><i class='bx bxs-message-square-add'></i></button>
-                            </form>
-                        @endif
-
-                    @endauth
+                        @endauth
+                    @endif
 
                 </div>
             </div>
         @endif
 
 
-        @if(checkGithubToken() || Auth::check())
-        <div class="navbar">
-            <div class="d-flex align-items-center">
-                <i class='bx bxl-github'></i><span class="ms-1" style="font-weight: bold;">Github</span>
-            </div>
-            <div class="text-secondary flex align-items-center" style="user-select:text;">
-                <div>
-                    @if (checkGithubToken())
-                        {{githubUserByToken()->getEmail()}}
-                    @endif
+        @if (checkGithubToken() || Auth::check())
+            <div class="navbar">
+                <div class="d-flex align-items-center">
+                    <i class='bx bxl-github'></i><span class="ms-1" style="font-weight: bold;">Github</span>
                 </div>
-                @auth
+                <div class="text-secondary flex align-items-center" style="user-select:text;">
+                    <div>
+                        @if (checkGithubToken())
+                            {{ githubUserByToken()->getEmail() }}
+                        @endif
+                    </div>
+                    @if (!$visitor)
+                        @auth
 
-                    @if (checkGithubToken())
-                        <div wire:click='LogOutFromGithub' class="text-secondary cursor-pointer ms-2" style="user-select:text;transform: translateY(3px)">
-                            <button type="submit" style="outline: none;font-size: 20px" class="hover:text-red-400"><i class='bx bxs-message-square-x'></i></button>
-                        </div>
-                    @else
+                            @if (checkGithubToken())
+                                <div wire:click='LogOutFromGithub' class="text-secondary cursor-pointer ms-2"
+                                    style="user-select:text;transform: translateY(3px)">
+                                    <button type="submit" style="outline: none;font-size: 20px" class="hover:text-red-400"><i
+                                            class='bx bxs-message-square-x'></i></button>
+                                </div>
+                            @else
+                                <form action="{{ route('Authgithub') }}" class="text-secondary cursor-pointer"
+                                    style="user-select:text;">
+                                    <button class="hover:text-green-500 align-items-center flex"
+                                        style="outline: none;font-size: 20px"><i class='bx bxs-message-square-add'></i></button>
+                                </form>
+                            @endif
 
-                        <form action="{{ route('Authgithub') }}" class="text-secondary cursor-pointer" style="user-select:text;">
-                            <button class="hover:text-green-500 align-items-center flex" style="outline: none;font-size: 20px"><i class='bx bxs-message-square-add'></i></button>
-                        </form>
+                        @endauth
                     @endif
 
-                @endauth
-
+                </div>
             </div>
-        </div>
-    @endif
+        @endif
 
 
 

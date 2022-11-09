@@ -18,9 +18,13 @@ return new class extends Migration
             $table->id();
 
             $table->string('Bio')->nullable();
+
             $table->string('localBio')->nullable();
 
             $table->string('Name')->nullable();
+
+            $table->string('USER_SID')->unique();
+
             $table->string('userType')->default(0); // 0 user | 1 superAdmin
 
             $table->longText('Message')->nullable();

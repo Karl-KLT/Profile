@@ -17,7 +17,7 @@ class Auth extends Component
     public function login()
     {
         if(FacedesAuth::attempt(['email' => $this->email, 'password' => $this->password],true)){
-            redirect(route('Admin'));
+            redirect(route('Profile'));
         }
         $this->error = 'email or password not correct';
     }

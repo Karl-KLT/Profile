@@ -4,7 +4,13 @@
 @endsection
 @section('container')
     <div class="pt-3 font-bold">
-        <h4 style="text-decoration: underline;letter-spacing: 1px">Admin</h4>
+        <h4 style="text-decoration: underline;letter-spacing: 1px">Profile</h4>
+        <br>
+        <div class="mb-3">
+            <span>Link of your Profile -> </span>
+            {{ Str::substr(env('APP_URL'),-1) == '/' ? env('APP_URL') : env('APP_URL').'/' }}User/{{ getUser()->Profile->USER_SID }}
+        </div>
+        <hr>
     </div>
     <div class="mt-1">
         <livewire:profile />

@@ -12,6 +12,7 @@ class Skills extends Component
     public $Name;
     public $MaxNum;
 
+    public $visitor;
 
     public $skills;
 
@@ -27,6 +28,10 @@ class Skills extends Component
         "MaxNum"=>"required|numeric|between:1,100"
     ];
 
+    public function __construct()
+    {
+        $this->visitor = checkVisitor();
+    }
 
     public function refreshEvent()
     {

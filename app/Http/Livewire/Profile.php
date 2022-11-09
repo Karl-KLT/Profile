@@ -20,6 +20,8 @@ class Profile extends Component
 
     public function __construct()
     {
+
+
         $user = getUser()->Profile;
         // dd($user);
         $this->Name = $user->Name;
