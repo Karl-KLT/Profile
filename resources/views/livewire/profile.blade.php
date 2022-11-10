@@ -37,9 +37,9 @@
 
     </div>
 
-    <div>
+    {{-- <div>
         <livewire:accounts />
-    </div>
+    </div> --}}
 
 
 
