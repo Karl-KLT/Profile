@@ -33,6 +33,16 @@ class Skills extends Component
         $this->visitor = checkVisitor();
     }
 
+
+    public function mount($USER_SID = null)
+    {
+        if($USER_SID){
+            $this->skills = getUser($USER_SID)->Skills;
+        }else{
+            $this->skills = getSkills();
+        }
+    }
+
     public function refreshEvent()
     {
 
@@ -68,7 +78,6 @@ class Skills extends Component
 
     public function render()
     {
-        $this->skills = getSkills();
 
         return view('livewire.skills');
     }

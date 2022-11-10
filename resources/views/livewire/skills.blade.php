@@ -11,13 +11,15 @@
                     <span>
                         {{ $skill->MaxNum }}</span>%
                     </span>
-                    @auth
-                        <span class="ms-2">
-                            <form wire:submit.prevent="remove({{ $skill->id }})">
-                                <button type="submit" style="outline: none" class="hover:text-red-400"><i class='bx bxs-message-square-x'></i></button>
-                            </form>
-                        </span>
-                    @endauth
+                    @if (!$visitor)
+                        @auth
+                            <span class="ms-2">
+                                <form wire:submit.prevent="remove({{ $skill->id }})">
+                                    <button type="submit" style="outline: none" class="hover:text-red-400"><i class='bx bxs-message-square-x'></i></button>
+                                </form>
+                            </span>
+                        @endauth
+                    @endif
                 </div>
                 <div style="display: flex;width: 100%;height: 10px;">
                     <div class="badge bg-secondary w-100 p-0">

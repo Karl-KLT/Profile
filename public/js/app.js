@@ -2476,14 +2476,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolinks/dist/turbolinks.js"); // Turbolinks.start()
+// document.addEventListener('DOMContentLoaded',function(){
+//     setTimeout(() => {
+//         document.getElementById('loading').className='d-none'
+//         document.getElementById('Main').className='d-block'
+//     }, 400);
+// })
+//events
 
-
-document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(function () {
-    document.getElementById('loading').className = 'd-none';
-    document.getElementById('Main').className = 'd-block';
-  }, 400);
-}); //events
 
 document.addEventListener('working_on_it', function () {
   Swal.fire('We still working on it Thx :)');
