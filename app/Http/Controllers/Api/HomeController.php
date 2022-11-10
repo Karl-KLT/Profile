@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function ShowDevSecure()
     {
         if(request()->date){
-            return 'updated: ' . carbonTimerForHumans(getDevSecure()->updated_at);
+            return carbonTimerForHumans(getDevSecure()->updated_at);
         }
 
         return getDevSecure()->DevSecure;
@@ -29,6 +29,7 @@ class HomeController extends Controller
             }else{
                 $key->DevSecure = $key->DevSecure ? 0 : 1;
             }
+            
             $key->update();
 
             return $key->DevSecure;
