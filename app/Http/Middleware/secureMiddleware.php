@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
-class secureProtocolMiddleware
+class secureMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,9 +17,6 @@ class secureProtocolMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        dd(request()->url());
-        if(request()->url() == env('APP_URL_WITHOUT_HTTPS') && App::environment('production')){return redirect(env('APP_URL'));}
-
         return $next($request);
     }
 }
