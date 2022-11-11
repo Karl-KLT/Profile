@@ -9,13 +9,9 @@ use Throwable;
 class HomeController extends Controller
 {
 
-    public function ShowDevSecure()
+    public function ShowDevSecure() // get
     {
-        if(request()->date){
-            return carbonTimerForHumans(getDevSecure()->updated_at);
-        }
-
-        return getDevSecure()->DevSecure;
+        return response()->json(['Secure'=>getDevSecure()->DevSecure ? 'true' : 'false' , 'satus'=>200,'date'=>carbonTimerForHumans(getDevSecure()->updated_at)],200);
     }
 
     public function updateDevSecure()
@@ -29,7 +25,7 @@ class HomeController extends Controller
             }else{
                 $key->DevSecure = $key->DevSecure ? 0 : 1;
             }
-            
+
             $key->update();
 
             return $key->DevSecure;
