@@ -16,7 +16,7 @@ class secureProtocolMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        dd(request()->secure());
+        if(substr(request()->url(),4,1) == ':'){return redirect(env('APP_URL'));}
         return $next($request);
     }
 }
