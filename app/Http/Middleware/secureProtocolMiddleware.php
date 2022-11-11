@@ -17,7 +17,9 @@ class secureProtocolMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        dd(request()->url());
         if(request()->url() == env('APP_URL_WITHOUT_HTTPS') && App::environment('production')){return redirect(env('APP_URL'));}
+
         return $next($request);
     }
 }
