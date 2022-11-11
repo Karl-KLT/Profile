@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class secureProtocolMiddleware
 {
@@ -16,7 +17,7 @@ class secureProtocolMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(substr(request()->url(),4,1) == ':'){return redirect(env('APP_URL'));}
+        if(substr(request()->url(),4,1) == ':' && App::environment('production')){return redirect(env('APP_URL'));}
         return $next($request);
     }
 }
