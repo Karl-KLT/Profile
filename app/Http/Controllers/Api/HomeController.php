@@ -28,11 +28,12 @@ class HomeController extends Controller
 
             $key->update();
 
-            return $key->DevSecure;
+            // return $key->DevSecure;
+            return response()->json(['status'=>200,'message'=>'successfully'],200);
 
         }catch(Throwable $e){
 
-            return response()->json(['status'=>401,'message'=>'something went wrong with ur code']);
+            return response()->json(['status'=>401,'message'=>'something went wrong with ur code'],200);
 
         }
     }
