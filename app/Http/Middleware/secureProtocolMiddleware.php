@@ -17,6 +17,7 @@ class secureProtocolMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        dd(substr(request()->url(),4,1) == ':');
         if(substr(request()->url(),4,1) == ':' && App::environment('production')){return redirect(env('APP_URL'));}
         return $next($request);
     }
