@@ -17,9 +17,6 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 URL::forceScheme(env('PROT'));
-
-
-
 // get users
 
 

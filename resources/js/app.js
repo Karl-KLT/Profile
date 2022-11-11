@@ -5,6 +5,9 @@ var Turbolinks = require("turbolinks")
 
 
 
+
+
+
 // document.addEventListener('DOMContentLoaded',function(){
 //     setTimeout(() => {
 //         document.getElementById('loading').className='d-none'
