@@ -2,10 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Profile as ModelsProfile;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Laravel\Socialite\Facades\Socialite;
+
 use Livewire\Component;
 use Throwable;
 
@@ -15,6 +12,9 @@ class Profile extends Component
     public $Bio;
     public $localBio;
     public $Message;
+
+
+    public $script;
 
     protected $listeners = ['Save'=>'saveDataAndRefresh'];
 
@@ -29,7 +29,13 @@ class Profile extends Component
         $this->localBio = $user->localBio;
         $this->Message = $user->Message;
     }
-
+    public function copySidLink()
+    {
+        $sidLink = (substr(env('APP_URL'),-1) == '/' ? env('APP_URL') : env('APP_URL').'/') .'User/'.getUser()->Profile->USER_SID;
+        $this->script = '<script>navigator.clipboard.writeText("'. $sidLink .'")</script>';
+        $this->dispatchBrowserEvent('saveSuccess');
+        $this->script = '';
+    }
 
     public function saveDataAndRefresh()
     {

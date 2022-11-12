@@ -1,4 +1,15 @@
 <div>
+
+    <div class="mb-3">
+        <span>copy Link of your Profile :</span>
+        <span wire:click='copySidLink' class="cursor-pointer">
+            <i class='bx bxs-copy-alt'></i>
+        </span>
+        {!!  $script  !!}
+        {{-- {{ Str::substr(env('APP_URL'),-1) == '/' ? env('APP_URL') : env('APP_URL').'/' }}User/{{ getUser()->Profile->USER_SID }} --}}
+
+    </div>
+
     <div class="row rounded">
 
         <div class="col-md-6 flex justify-content-between align-items-center">
