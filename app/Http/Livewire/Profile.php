@@ -13,9 +13,6 @@ class Profile extends Component
     public $localBio;
     public $Message;
 
-
-    public $script;
-
     protected $listeners = ['Save'=>'saveDataAndRefresh'];
 
     public function __construct()
@@ -31,10 +28,7 @@ class Profile extends Component
     }
     public function copySidLink()
     {
-        $sidLink = (substr(env('APP_URL'),-1) == '/' ? env('APP_URL') : env('APP_URL').'/') .'User/'.getUser()->Profile->USER_SID;
-        $this->script = '<script>navigator.clipboard.writeText("'. $sidLink .'")</script>';
-        $this->dispatchBrowserEvent('saveSuccess');
-        $this->script = '';
+        $this->dispatchBrowserEvent('saveSuccessWithSid',['sidLink'=>(substr(env('APP_URL'),-1) == '/' ? env('APP_URL') : env('APP_URL').'/') .'User/'.getUser()->Profile->USER_SID]);
     }
 
     public function saveDataAndRefresh()

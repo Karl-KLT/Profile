@@ -2488,6 +2488,32 @@ var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolink
 document.addEventListener('working_on_it', function () {
   Swal.fire('We still working on it Thx :)');
 });
+window.addEventListener('saveSuccessWithSid', function (event) {
+  var Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: function didOpen(toast) {
+      toast.addEventListener('mouseenter', Swal.stopTimer);
+      toast.addEventListener('mouseleave', Swal.resumeTimer);
+    }
+  });
+
+  try {
+    navigator.clipboard.writeText(event.detail.sidLink);
+    Toast.fire({
+      icon: 'success',
+      title: 'saved successfully'
+    });
+  } catch (err) {
+    Toast.fire({
+      icon: 'error',
+      title: 'smth went wrong'
+    });
+  }
+});
 window.addEventListener('saveSuccess', function () {
   var Toast = Swal.mixin({
     toast: true,
