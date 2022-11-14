@@ -12,7 +12,13 @@
         <div class="col-md-6 flex justify-content-between align-items-center">
 
             <div>
-                <img src="{{ asset('img.jfif') }}" style="border-radius: 100%;width: 150px;" alt="Profile_Image">
+                <div id="select_img" class="cursor-pointer border rounded-circle">
+                    <img wire:ignore style="width: 155px;height: 120px;border-radius: 100%;" id="img" src="{{ $Image ? asset($Image) : asset('storage/imgs/default-user-image.png') }}" alt="Profile_image">
+                </div>
+
+                <div hidden>
+                    <input id="fileInput" wire:model='Image' accept="image/*" type="file" >
+                </div>
             </div>
 
             <div class="ms-4 w-100">

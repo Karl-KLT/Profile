@@ -17,6 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('ShowDevSecure','HomeController@ShowDevSecure');
 
 Route::post('updateDevSecure','HomeController@updateDevSecure');
-
-Route::post('showUsers','HomeController@showUsers');
-

@@ -29,7 +29,7 @@
                 <div id="prof" class="d-flex p-2 firstBox container-fluid justify-content-start w-100 align-items-center">
 
                     <div class="me-3">
-                        <img src="{{ asset('img.jfif') }}" style="width: 100px;height: 100px;border-radius: 100%;border: 4px solid #B6CDC6">
+                        <img src="{{ old('Image',$user) ? asset(old('Image',$user)) : asset('storage/imgs/default-user-image.png')}}" style="width: 115px;height: 115px;border-radius: 100%;border: 4px solid #B6CDC6">
                     </div>
 
                     <div class="mt-2 pb-3">
