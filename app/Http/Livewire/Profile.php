@@ -56,7 +56,6 @@ class Profile extends Component
 
             $this->dispatchBrowserEvent('saveSuccess');
         }catch(Throwable $e){
-            dd($e);
             $this->dispatchBrowserEvent('saveFaild');
         }
     }
