@@ -18,20 +18,18 @@
 </head>
 
 <body id="body-pd">
-    @if(!ActiveRoutes('chat'))
-        <header class="header" id="header">
+    <header class="header" id="header">
 
-            <div class="header_toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
+        <div class="header_toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+        {{-- <div class="header_img">
+            <div>
+                <img src="{{ asset("img.jfif") }}" style="border-radius: 100%;border: 4px solid #B6CDC6">
             </div>
-            <div class="header_img">
-                <div>
-                    <img src="{{ asset("img.jfif") }}" style="border-radius: 100%;border: 4px solid #B6CDC6">
-                </div>
-            </div>
+        </div> --}}
 
-        </header>
-    @endif
+    </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>

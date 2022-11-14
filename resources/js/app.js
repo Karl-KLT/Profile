@@ -4,33 +4,6 @@ var Turbolinks = require("turbolinks")
 // Turbolinks.start()
 
 
-function readURL(input) {
-    if (input.files && input.files[0]) {
-
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            document.getElementById('img').src = e.target.result
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-
-}
-
-document.addEventListener('DOMContentLoaded',function(){
-
-    document.getElementById('select_img').onclick = () => {
-        var file = document.getElementById('fileInput');
-        file.click();
-        file.onchange = (event) => {
-            readURL(event.target);
-        }
-    }
-
-})
-
-
 
 // document.addEventListener('DOMContentLoaded',function(){
 //     setTimeout(() => {

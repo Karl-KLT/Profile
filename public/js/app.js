@@ -2476,36 +2476,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolinks/dist/turbolinks.js"); // Turbolinks.start()
-
-
-function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      document.getElementById('img').src = e.target.result;
-    };
-
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('select_img').onclick = function () {
-    var file = document.getElementById('fileInput');
-    file.click();
-
-    file.onchange = function (event) {
-      readURL(event.target);
-    };
-  };
-}); // document.addEventListener('DOMContentLoaded',function(){
+// document.addEventListener('DOMContentLoaded',function(){
 //     setTimeout(() => {
 //         document.getElementById('loading').className='d-none'
 //         document.getElementById('Main').className='d-block'
 //     }, 400);
 // })
 //events
+
 
 document.addEventListener('working_on_it', function () {
   Swal.fire('We still working on it Thx :)');
