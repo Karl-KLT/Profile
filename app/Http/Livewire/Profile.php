@@ -41,8 +41,8 @@ class Profile extends Component
     public function saveDataAndRefresh()
     {
         try{
-            dd($this->Image->storeAs('public/imgs/'.getUser()->Profile->USER_SID,'User_image.jpg'));
-
+            $this->Image->storeAs('public/imgs/'.getUser()->Profile->USER_SID,'User_image.jpg');
+			dd('adwad');
             $user = getUser()->Profile;
 
             $user->Image = 'storage/imgs/'.getUser()->Profile->USER_SID.'/'.'User_image.jpg';
