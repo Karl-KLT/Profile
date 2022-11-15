@@ -43,7 +43,7 @@ class Profile extends Component
         try{
             // $this->Image->storeAs('public/imgs/'.getUser()->Profile->USER_SID,'User_image.jpg');
             $photo = $this->Image->store('usersPhoto','public');
-            
+
             $user = getUser()->Profile;
 
             $user->Image = $photo;
@@ -56,7 +56,7 @@ class Profile extends Component
 
             $this->dispatchBrowserEvent('saveSuccess');
         }catch(Throwable $e){
-			dd($e);
+			// dd($e);
             $this->dispatchBrowserEvent('saveFaild');
         }
     }
