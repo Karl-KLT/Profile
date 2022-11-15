@@ -42,5 +42,10 @@ class HomeController extends Controller
         return view('Web.posts');
     }
 
+    public function config()
+    {
+        return view('Web.config');
+    }
+
 
 }

@@ -13,10 +13,6 @@ var Turbolinks = require("turbolinks")
 // })
 
 
-
-
-
-
 //events
 
 

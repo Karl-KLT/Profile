@@ -27,7 +27,9 @@ Route::namespace('Web')->group(function(){
 
     Route::get('User/{USER_SID}','HomeController@visitUser')->name('visitUser');
 
-    Route::get('skills','HomeController@skill')->name('home.skill');
+    Route::get('skills','HomeController@skill')->name('home.skills');
+
+    Route::get('Config','HomeController@config')->name('Config');
 
     Route::get('Login',function(){
         if(Auth::check()){return redirect(route('Profile'));}
