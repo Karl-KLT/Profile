@@ -40,7 +40,7 @@ class Profile extends Component
 
     public function saveDataAndRefresh()
     {
-
+        dd($this->Image);
         try{
             $this->Image->storeAs('public/imgs/'.getUser()->Profile->USER_SID,'User_image.jpg');
 
