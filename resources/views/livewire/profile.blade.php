@@ -13,7 +13,9 @@
 
             <div>
                 <div id="select_img" class="cursor-pointer border rounded-circle">
-                    <img wire:ignore style="width: 155px;height: 120px;border-radius: 100%;" id="img" src="{{ $Image ? asset($Image) : asset('storage/imgs/default-user-image.png') }}" alt="Profile_image">
+
+                    <img wire:ignore style="width: 155px;height: 120px;border-radius: 100%;" id="img" src="{{ $Image ? asset('storage/'.$Image) : asset('storage/imgs/default-user-image.png') }}" alt="Profile_image">
+
                 </div>
 
                 <div hidden>

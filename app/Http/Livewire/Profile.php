@@ -41,11 +41,12 @@ class Profile extends Component
     public function saveDataAndRefresh()
     {
         try{
-            $this->Image->storeAs('public/imgs/'.getUser()->Profile->USER_SID,'User_image.jpg');
-
+            // $this->Image->storeAs('public/imgs/'.getUser()->Profile->USER_SID,'User_image.jpg');
+            $photo = $this->Image->store('usersPhoto','public');
+            
             $user = getUser()->Profile;
 
-            $user->Image = 'storage/imgs/'.getUser()->Profile->USER_SID.'/'.'User_image.jpg';
+            $user->Image = $photo;
             $user->Name = $this->Name;
             $user->Bio = $this->Bio;
             $user->localBio = $this->localBio;
