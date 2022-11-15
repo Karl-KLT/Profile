@@ -13,7 +13,8 @@
 
             <div>
                 <div id="select_img" class="cursor-pointer border rounded-circle">
-                    {{ dd(url()) }}
+                    <img src="{{ url('storage/imgs/default-user-image.png') }}" alt="">
+                    {{ dd(url('storage/imgs/default-user-image.png')) }}
                     <img wire:ignore style="width: 155px;height: 120px;border-radius: 100%;" id="img" src="{{ $Image ? asset($Image) : url('storage/imgs/default-user-image.png') }}" alt="Profile_image">
 
                 </div>
