@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -24,8 +25,6 @@ class Profile extends Component
 
         $user = getUser()->Profile;
 
-        $this->Image = $user->Image;
-
         $this->Name = $user->Name;
         $this->Bio = $user->Bio;
         $this->localBio = $user->localBio;
@@ -41,12 +40,8 @@ class Profile extends Component
     public function saveDataAndRefresh()
     {
         try{
-            // $this->Image->storeAs('public/imgs/'.getUser()->Profile->USER_SID,'User_image.jpg');
-            $photo = $this->Image->store('usersPhoto','public');
-
             $user = getUser()->Profile;
 
-            $user->Image = $photo;
             $user->Name = $this->Name;
             $user->Bio = $this->Bio;
             $user->localBio = $this->localBio;
@@ -56,12 +51,15 @@ class Profile extends Component
 
             $this->dispatchBrowserEvent('saveSuccess');
         }catch(Throwable $e){
-			// dd($e);
+			dd($e);
             $this->dispatchBrowserEvent('saveFaild');
         }
     }
     public function render()
     {
+
+        $this->Image = getUser()->Profile->Image;
+        
         return view('livewire.profile');
     }
 }

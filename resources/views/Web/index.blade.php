@@ -28,9 +28,9 @@
 
                 <div id="prof" class="d-flex p-2 firstBox container-fluid justify-content-start w-100 align-items-center">
 
-                    {{-- <div class="me-3">
-                        <img src="{{ old('Image',$user) ? asset('storage/'.old('Image',$user)) : asset('storage/imgs/default-user-image.png')}}" style="width: 115px;height: 115px;border-radius: 100%;border: 4px solid #B6CDC6">
-                    </div> --}}
+                    <div class="me-3">
+                        <img src="{{ old('Image',$user) ? old('Image',$user) : asset('DUser.jpg') }}" style="width: 115px;height: 115px;border-radius: 100%;border: 4px solid #B6CDC6">
+                    </div>
 
                     <div class="mt-2 ms-3 pb-3">
 

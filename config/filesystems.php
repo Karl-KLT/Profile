@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    'default' => env('FILESYSTEM_DISK', 'public'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,6 +54,15 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
+        ],
+
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => 'files.000webhost.com',
+            'port' => 21,
+            'username' => 'unimplored-starts',
+            'password' => 'Hcode0110',
+            'root' => env('APP_NAME').'/'
         ],
 
     ],

@@ -31,6 +31,10 @@ Route::namespace('Web')->group(function(){
 
     Route::get('Config','HomeController@config')->name('Config');
 
+
+    Route::post('saveImage','HomeController@saveImage')->name('saveImage');
+    Route::post('deleteImage','HomeController@deleteImage')->name('deleteImage');
+
     Route::get('Login',function(){
         if(Auth::check()){return redirect(route('Profile'));}
         return view('Auth.index');

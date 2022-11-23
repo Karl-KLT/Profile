@@ -4,15 +4,43 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class HomeController extends Controller
 {
 
     public function index()
     {
+
         $user = getUser()->Profile;
 
         return view('Web.index',compact('user'));
+    }
+
+    public function saveImage(Request $request)
+    {
+        if($request->hasFile('image')){
+
+
+            $upload = uploadFile($request->file('image'),'images');
+
+
+            $user = getUser()->Profile;
+            $user->Image = $upload;
+            $user->update();
+
+            return redirect()->back();
+        }
+    }
+
+    public function deleteImage()
+    {
+        $user = getUser()->Profile;
+        $user->Image = null;
+        $user->update();
+        deleteFile(getUser()->Profile->Image);
+        return redirect()->back();
     }
 
     public function visitUser($USER_SID)

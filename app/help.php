@@ -5,8 +5,12 @@ use App\Models\Profile;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Socialite\Facades\Socialite;
+
 
 function ActiveRoutes($url = null)
 {
@@ -26,6 +30,29 @@ function ActiveRoutes($url = null)
     }
 }
 
+function uploadFile(UploadedFile $file, $folder){
+    $date_path = date("Y") . '/' . date("m") . '/' . date("d") . '/';
+    $path = public_path() . '/assets/uploads/' . $folder . '/' . $date_path;
+
+    if (!File::exists($path)) {
+        File::makeDirectory($path, 0777, true);
+    }
+
+    $file_name = date('YmdHis') . mt_rand() . '_' . $folder . '.' . $file->getClientOriginalExtension();
+
+    if ($file->move($path, $file_name)) {
+        return $img = '/assets/uploads/' . $folder . '/' . $date_path . $file_name;
+    }
+}
+
+function deleteFile($file_name)
+{
+    $file_path = public_path() . $file_name;
+    if (File::exists($file_path)) {
+        File::delete($file_path);
+    }
+    return true;
+}
 
 function randomString()
 {

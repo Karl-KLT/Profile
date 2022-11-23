@@ -11,16 +11,37 @@
 
         <div class="col-md-6 flex justify-content-between align-items-center">
 
-            {{-- <div>
-                <div id="select_img" class="cursor-pointer border rounded-circle">
+            <div>
+                <div>
 
-                    <img wire:ignore style="width: 155px;height: 120px;border-radius: 100%;" id="img" src="{{ $Image ? asset($Image) : asset('storage/imgs/default-user-image.png') }}" alt="Profile_image">
+                    <div>
+                        <div class="w-100 d-flex justify-content-end">
+                            @if (getUser()->Profile->Image)
+                                <form action="{{ route('deleteImage') }}" method="POST">
+                                    @csrf
+                                    <button class="badge bg-dark me-1">-</button>
+                                </form>
+                            @endif
+
+                            <button type="submit" id="select_img" class="badge bg-dark">+</button>
+
+                        </div>
+                    </div>
+
+                    <form action="{{ route('saveImage') }}" enctype="multipart/form-data" method="POST">
+                        @csrf
+                        <div hidden>
+                            <input id="fileInput" name="image" accept="image/*" type="file" />
+                            <button type="submit" id="subimage"></button>
+                        </div>
+                    </form>
 
                 </div>
-
-                <div hidden>
-                    <input id="fileInput" wire:model='Image' accept="image/*" type="file" >
+                <div class="border rounded-circle">
+                    <img wire:ignore style="width: 155px;height: 120px;border-radius: 100%;" id="img" src="{{ getUser()->Profile->Image ? asset(getUser()->Profile->Image) : asset('DUser.jpg') }}" alt="Profile_image">
                 </div>
+
+
                 <script>
                     function readURL(input) {
                         if (input.files && input.files[0]) {
@@ -37,11 +58,12 @@
                             file.click();
                             file.onchange = (event) => {
                                 readURL(event.target);
+                                document.getElementById('subimage').click()
                             }
                         }
                     })
                 </script>
-            </div> --}}
+            </div>
 
             <div class="ms-4 w-100">
 
