@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('ShowDevSecure','HomeController@ShowDevSecure');
+Route::group(['middleware' => 'api'], function () {
+    Route::post('login','HomeController@login');
 
-Route::post('updateDevSecure','HomeController@updateDevSecure');
+    Route::get('ShowDevSecure','HomeController@ShowDevSecure');
+
+    Route::post('updateDevSecure','HomeController@updateDevSecure');
+});
+
