@@ -29,8 +29,6 @@ Route::namespace('Web')->group(function(){
 
     Route::get('skills','HomeController@skill')->name('home.skills');
 
-    Route::get('Config','HomeController@config')->name('Config');
-
 
     Route::post('saveImage','HomeController@saveImage')->name('saveImage');
     Route::post('deleteImage','HomeController@deleteImage')->name('deleteImage');
@@ -60,9 +58,17 @@ Route::group(['prefix'=>'posts','namespace'=>'Web','middleware'=>'auth'],functio
 Route::group([
     'prefix'=>'Profile',
     'namespace'=>'Auth',
-    'middleware'=>'auth'
+    'middleware'=>'custom_Auth'
 ],function(){
     Route::get('/','LoginController@index')->name('Profile');
+});
+
+Route::group(['prefix'=>'Config','namespace'=>'Web','middleware'=>'custom_Auth'],function(){
+
+    Route::get('/','HomeController@config')->name('Config');
+
+    Route::post('saveProm','HomeController@saveProm')->name('saveProm');
+
 });
 
 

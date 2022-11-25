@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,6 +18,16 @@ class HomeController extends Controller
 
         return view('Web.index',compact('user'));
     }
+
+    public function saveProm(Request $request)
+    {
+        $user = User::find($request->id)->Profile;
+        $user->userType = $request->prom;
+        $user->update();
+
+        return redirect(route('Config'));
+    }
+
 
     public function saveImage(Request $request)
     {
@@ -72,7 +83,11 @@ class HomeController extends Controller
 
     public function config()
     {
-        return view('Web.config');
+        if(checkSA()){
+            return view('Web.config');
+        }
+
+        return redirect(route('Home'));
     }
 
 
