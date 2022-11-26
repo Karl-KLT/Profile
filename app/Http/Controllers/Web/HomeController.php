@@ -87,7 +87,7 @@ class HomeController extends Controller
 
     public function Animes()
     {
-        return view('Web.Sections.Animes.index');
+        return view('Web.sections.Animes.index');
     }
 
     public function config()
