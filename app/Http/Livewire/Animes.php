@@ -27,6 +27,8 @@ class Animes extends Component
         // $TopOfAnimes = $this->Jikan->getTopAnime((new TopAnimeRequest(1,Constants::TOP_UPCOMING)));
         $TopOfAnimes = $this->Jikan->getAnimeRecommendations(new AnimeRecommendationsRequest(1));
 
+        // $TopOfAnimes = $this->Jikan->getAnimeEpisodes(new AnimeEpis);
+
         return view('livewire.animes',compact('TopOfAnimes'));
     }
 }
