@@ -17,8 +17,22 @@
                     <tr>
                         <th class="text-center" scope="row">{{ $loop->iteration }}</th>
                         <td class="text-center">{{ $user->Profile->Name }}</td>
-                        <td class="text-center">{{ $user->email }}</td>
+
+                        @if (env('MAIN_ADMIN_EMAIL') != $user->email)
+                            <td class="text-center">{{ $user->email }}</td>
+                        @else
+                            <td class="text-center">
+                                <div style="letter-spacing: 0.8px" class="badge fw-bold bg-primary">
+                                    Can't show
+                                </div>
+                            </td>
+                        @endif
+
+
+
                         <td class="text-center" style="user-select: text;">{{ $user->Profile->USER_SID }}</td>
+
+
                         @if (env('MAIN_ADMIN_EMAIL') != $user->email)
 
                             @if($user->email == auth()->user()->email)
@@ -43,7 +57,11 @@
                             @endif
 
                         @else
-                            <td class="text-center">not available</td>
+                            <td class="text-center">
+                                <div style="letter-spacing: 0.8px" class="badge fw-bold bg-primary">
+                                    Can't change
+                                </div>
+                            </td>
                         @endif
                     </tr>
                 @endforeach
