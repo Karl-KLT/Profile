@@ -17,6 +17,10 @@ class secureMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if( request()->path() == 'public'){
+            return redirect(env('APP_URL'));
+        }
+        
         return $next($request);
     }
 }
