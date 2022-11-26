@@ -2,19 +2,18 @@
 
 namespace App\Http\Livewire;
 
-use Jikan\Helper\Constants;
 use Jikan\MyAnimeList\MalClient;
-use Jikan\Request\Anime\AnimeRecommendationsRequest;
-use Jikan\Request\Anime\AnimeStatsRequest;
+use Jikan\Request\Search\AnimeSearchRequest;
 use Jikan\Request\Top\TopAnimeRequest;
 use Livewire\Component;
 
 class Animes extends Component
 {
-    public $Search;
-
     private $Jikan;
-
+    public $search;
+    protected $rules = [
+        'search'=>'required|min:3'
+    ];
 
     public function __construct()
     {
@@ -24,11 +23,22 @@ class Animes extends Component
 
     public function render()
     {
-        // $TopOfAnimes = $this->Jikan->getTopAnime((new TopAnimeRequest(1,Constants::TOP_UPCOMING)));
-        $TopOfAnimes = $this->Jikan->getAnimeRecommendations(new AnimeRecommendationsRequest(1));
 
-        // $TopOfAnimes = $this->Jikan->getAnimeEpisodes(new AnimeEpis);
+        $Animes = null;
 
-        return view('livewire.animes',compact('TopOfAnimes'));
+        if($this->search){
+
+            $this->validate();
+
+            $Animes = $this->Jikan->getAnimeSearch(new AnimeSearchRequest($this->search,1));
+
+        }else{
+
+            $Animes = $this->Jikan->getTopAnime(new TopAnimeRequest(1));
+
+        }
+
+
+        return view('livewire.animes',compact('Animes'));
     }
 }
