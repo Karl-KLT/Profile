@@ -11,9 +11,6 @@ class Animes extends Component
 {
     private $Jikan;
     public $search;
-    protected $rules = [
-        'search'=>'required|min:3'
-    ];
 
     public function __construct()
     {
@@ -26,9 +23,7 @@ class Animes extends Component
 
         $Animes = null;
 
-        if($this->search){
-
-            $this->validate();
+        if(strlen($this->search) > 2){
 
             $Animes = $this->Jikan->getAnimeSearch(new AnimeSearchRequest($this->search,1));
 
