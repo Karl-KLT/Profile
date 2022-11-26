@@ -72,6 +72,18 @@ Route::group(['prefix'=>'Config','namespace'=>'Web','middleware'=>'custom_Auth']
 });
 
 
+Route::group(['prefix'=>'Sections','namespace'=>'Web','middleware'=>'custom_Auth'],function(){
+
+    Route::get('/','HomeController@Sections')->name('Sections');
+
+
+    Route::get('Animes','HomeController@Animes')->name('Animes');
+
+    // Route::post('saveProm','HomeController@saveProm')->name('saveProm');
+
+});
+
+
 
 Route::fallback(function(){
     return '404 -> page not found';

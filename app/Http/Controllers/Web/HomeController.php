@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-
 
 class HomeController extends Controller
 {
@@ -69,7 +67,7 @@ class HomeController extends Controller
 
         return view('Web.index',compact('user'));
     }
-
+    // routes
     public function skill()
     {
         return view('Web.skills');
@@ -79,6 +77,17 @@ class HomeController extends Controller
     public function posts()
     {
         return view('Web.posts');
+    }
+
+
+    public function Sections()
+    {
+        return view('Web.Sections.Sections');
+    }
+
+    public function Animes()
+    {
+        return view('Web.Sections.Animes.index');
     }
 
     public function config()
