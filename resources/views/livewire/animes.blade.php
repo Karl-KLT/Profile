@@ -1,6 +1,6 @@
 <div>
     <div>
-        <input type="text" wire:loading.attr="disabled" wire:model.debounce.240ms="search" placeholder="Search . . . (must ur length = 3 or 2 for min)" class="form-control">
+        <input type="text" wire:loading.attr="disabled" wire:model.lazy="search" placeholder="Search . . . (must ur length = 3 or 2 for min)" class="form-control">
     </div>
 
 
