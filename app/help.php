@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
+use Jikan\MyAnimeList\MalClient;
+use Jikan\Request\Anime\AnimeEpisodeRequest;
+use Jikan\Request\Anime\AnimeEpisodesRequest;
+use Jikan\Request\Anime\AnimeRequest;
+use Jikan\Request\Anime\AnimeVideosRequest;
 use Laravel\Socialite\Facades\Socialite;
 
 
@@ -155,4 +159,16 @@ function githubUserByToken(){
 
 function checkGithubToken(){
     return getUser()->githubToken ? true : false;
+}
+
+
+// anime helpers
+function anime($id)
+{
+    return (new MalClient)->getAnime(new AnimeRequest($id));
+}
+
+function epsForAnime($id)
+{
+    return (new MalClient)->getAnimeVideos(new AnimeVideosRequest($id));
 }

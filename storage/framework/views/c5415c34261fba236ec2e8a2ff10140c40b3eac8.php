@@ -11,12 +11,12 @@
                         <div class="ms-2">
                             <span class="badge bg-info">New</span>
                             <span class="badge bg-danger">underDev</span>
-                            <span class="badge bg-success">1.0</span>
+                            <span class="badge bg-success">V1.1</span>
                         </div>
                     </div>
                     <p class="text-gray-700 text-base">
                         
-                        Watch new ? <span class="badge bg-primary cursor-pointer" wire:click='goToAnimes'>Go</span>
+                        What's new ? <span class="badge bg-primary cursor-pointer" wire:click='goToAnimes'>Go</span>
                     </p>
                 </div>
             </div>

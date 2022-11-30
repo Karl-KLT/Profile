@@ -78,8 +78,7 @@ Route::group(['prefix'=>'Sections','namespace'=>'Web','middleware'=>'custom_Auth
 
 
     Route::get('Animes','HomeController@Animes')->name('Animes');
-
-    // Route::post('saveProm','HomeController@saveProm')->name('saveProm');
+    Route::get('animePage/{id}','HomeController@animePage')->name('Anime.page');
 
 });
 

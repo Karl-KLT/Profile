@@ -90,6 +90,15 @@ class HomeController extends Controller
         return view('Web.sections.Animes.index');
     }
 
+
+    public function animePage($id)
+    {
+        $anime = anime($id);
+        $episodes = array_reverse(epsForAnime($id)->getEpisodes());
+        return view('Web.sections.Animes.animePage',compact('anime','episodes'));
+    }
+
+
     public function config()
     {
         if(checkSA()){

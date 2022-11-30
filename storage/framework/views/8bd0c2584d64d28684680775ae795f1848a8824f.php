@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('container'); ?>
     <div class="pt-3 font-bold">
         <h4 style="text-decoration: underline;letter-spacing: 1px">Animes</h4>
@@ -9,15 +10,15 @@
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('animes', [])->html();
-} elseif ($_instance->childHasBeenRendered('r4PMTEg')) {
-    $componentId = $_instance->getRenderedChildComponentId('r4PMTEg');
-    $componentTag = $_instance->getRenderedChildComponentTagName('r4PMTEg');
+} elseif ($_instance->childHasBeenRendered('QENMGUc')) {
+    $componentId = $_instance->getRenderedChildComponentId('QENMGUc');
+    $componentTag = $_instance->getRenderedChildComponentTagName('QENMGUc');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('r4PMTEg');
+    $_instance->preserveRenderedChild('QENMGUc');
 } else {
     $response = \Livewire\Livewire::mount('animes', []);
     $html = $response->html();
-    $_instance->logRenderedChild('r4PMTEg', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('QENMGUc', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

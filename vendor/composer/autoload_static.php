@@ -108,6 +108,7 @@ class ComposerStaticInit3655c95efb499261e3d5f26f37e63ff6
             'Psr\\Http\\Client\\' => 16,
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
+            'Psr\\Clock\\' => 10,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
         ),
@@ -400,6 +401,10 @@ class ComposerStaticInit3655c95efb499261e3d5f26f37e63ff6
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Psr\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/clock/src',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
@@ -598,6 +603,7 @@ class ComposerStaticInit3655c95efb499261e3d5f26f37e63ff6
         'App\\Http\\Controllers\\Web\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Web/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Livewire\\Accounts' => __DIR__ . '/../..' . '/app/Http/Livewire/Accounts.php',
+        'App\\Http\\Livewire\\Animes' => __DIR__ . '/../..' . '/app/Http/Livewire/Animes.php',
         'App\\Http\\Livewire\\Auth' => __DIR__ . '/../..' . '/app/Http/Livewire/Auth.php',
         'App\\Http\\Livewire\\Config' => __DIR__ . '/../..' . '/app/Http/Livewire/Config.php',
         'App\\Http\\Livewire\\LoadDocument' => __DIR__ . '/../..' . '/app/Http/Livewire/LoadDocument.php',
@@ -4740,6 +4746,7 @@ class ComposerStaticInit3655c95efb499261e3d5f26f37e63ff6
         'PhpParser\\PrettyPrinterAbstract' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/PrettyPrinterAbstract.php',
         'PhpParser\\PrettyPrinter\\Standard' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/PrettyPrinter/Standard.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
+        'Psr\\Clock\\ClockInterface' => __DIR__ . '/..' . '/psr/clock/src/ClockInterface.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',

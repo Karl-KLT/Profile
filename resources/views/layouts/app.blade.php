@@ -352,6 +352,10 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #86a79d;
     }
+    .hide-scroll::-webkit-scrollbar{
+        width: 0px;
+        height: 0px;
+    }
 </style>
 
 </html>

@@ -101,15 +101,15 @@
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('load-document', [])->html();
-} elseif ($_instance->childHasBeenRendered('yg0D4D5')) {
-    $componentId = $_instance->getRenderedChildComponentId('yg0D4D5');
-    $componentTag = $_instance->getRenderedChildComponentTagName('yg0D4D5');
+} elseif ($_instance->childHasBeenRendered('ifqZfgI')) {
+    $componentId = $_instance->getRenderedChildComponentId('ifqZfgI');
+    $componentTag = $_instance->getRenderedChildComponentTagName('ifqZfgI');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('yg0D4D5');
+    $_instance->preserveRenderedChild('ifqZfgI');
 } else {
     $response = \Livewire\Livewire::mount('load-document', []);
     $html = $response->html();
-    $_instance->logRenderedChild('yg0D4D5', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('ifqZfgI', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -363,6 +363,10 @@ echo $html;
 
     ::-webkit-scrollbar-thumb:hover {
         background: #86a79d;
+    }
+    .hide-scroll::-webkit-scrollbar{
+        width: 0px;
+        height: 0px;
     }
 </style>
 
